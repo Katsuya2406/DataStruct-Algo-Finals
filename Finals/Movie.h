@@ -1,18 +1,24 @@
-class Movie {
-private:
-    string title;
-    string genre;
-    string rating;
-    int year;
+#ifndef MOVIE_H
+#define MOVIE_H
 
+#include <string>
+#include <queue>
+
+using namespace std;
+
+class Movie
+{
 public:
-    Movie();
-    Movie(string t, string g, string r, int yr);
+	
+    string title;
 
-    void addMovie(string t, string g, string r, int yr);
-    void deleteMovie(string title);
-    void searchMovie(string title);
-    void saveToFile(string filename);
-    void loadFromFile(string filename);
+    void loadQueueFromFile(queue<Movie>& movieQueue, const string& filename);
+    void saveQueueToFile(queue<Movie> movieQueue, const string& filename);
+
+    void addMovie(queue<Movie>& movieQueue);
+    void deleteMovie(queue<Movie>& movieQueue);
+    void searchMovie(queue<Movie> movieQueue);
     void displayMenu();
 };
+
+#endif
