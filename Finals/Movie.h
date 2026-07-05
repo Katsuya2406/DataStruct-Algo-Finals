@@ -1,24 +1,21 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
-#include <string>
 #include <queue>
+#include <string>
 
 using namespace std;
 
-class Movie
-{
-public:
-	
-    string title;
+void loadQueueFromFile(queue<string>& movieQueue, const string& filename);
+void saveQueueToFile(const queue<string>& movieQueue, const string& filename);
 
-    void loadQueueFromFile(queue<Movie>& movieQueue, const string& filename);
-    void saveQueueToFile(queue<Movie> movieQueue, const string& filename);
 
-    void addMovie(queue<Movie>& movieQueue);
-    void deleteMovie(queue<Movie>& movieQueue);
-    void searchMovie(queue<Movie> movieQueue);
-    void displayMenu();
-};
+void addMovie(queue<string>& movieQueue);
+void playMovie(queue<string>& movieQueue);
+void viewNextMovie(const queue<string>& movieQueue);
+void checkIfEmpty(const queue<string>& movieQueue);
+
+
+void displayMenu();
 
 #endif
