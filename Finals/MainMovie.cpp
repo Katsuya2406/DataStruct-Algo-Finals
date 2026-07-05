@@ -6,34 +6,21 @@
 
 using namespace std;
 
-int main() {      
-	    Movie movie;
-
-          // <-- Fixed
-
-    queue<Movie> movieQueue;  // <-- Declare the queue
+int main() {    
+	queue<string> movieQueue;
+    const string filename = "movieQueue.txt";
+  
+	   loadQueueFromFile(movieQueue, filename);
 
     int choice;
     
-while (true)
-    {
-        movie.displayMenu();
-
-        cin >> choice;
-        cin.ignore();
-
-    cout << "Enter choice: ";
-    cin >> choice;
-
-    switch (choice) {
-    case 1:
-        movie.addMovie(movieQueue); // <-- Make sure the name matches
-        break;
-
-    default:
-        cout << "Invalid choice, please try again." << endl;
-        break;
-    }
-}
+    while (true){
+    	displayMenu();
+    	
+    	cin >>choice;
+    	cin.ignore();
+    	
+    	switch
+	}
     return 0;
 }
