@@ -15,3 +15,4 @@ To add:
 1. searchMovie
 2. watcherMovie
 3. paymentMovie
+4. Error Detector
