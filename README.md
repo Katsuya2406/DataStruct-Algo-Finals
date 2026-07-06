@@ -6,11 +6,11 @@ List of Contributors:
 2. Jenssell Simon
 
 Functions:
-- [ ] addMovie
-- [ ] playMovie
-- [ ] viewNextMovie
-- [ ] checkIfEmpty
-- [ ] Exit
+- [x] addMovie
+- [x] playMovie
+- [x] viewNextMovie
+- [x] checkIfEmpty
+- [x] Exit
 
 To add:
 - [ ] searchMovie
