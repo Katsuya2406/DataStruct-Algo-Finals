@@ -20,7 +20,11 @@ int main() {
     	cin >>choice;
     	cin.ignore();
     	
-    	switch
+    	switch (choice){
+    		case 1:
+    			addMovie(movieQueue);
+    			break;
+		}
 	}
     return 0;
 }

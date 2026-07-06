@@ -84,4 +84,5 @@ void displayMenu(){
 	cout << "3. View the next movie" << endl;
 	cout << "4. Check if the list is empty" << endl;
 	cout << "5. Exit" << endl;
+	cout << "Enter your choice: ";
 }
