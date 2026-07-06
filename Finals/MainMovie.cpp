@@ -38,6 +38,10 @@ int main() {
     			break;
     			
     		case 5:
+    			searchInFile(movieQueue);
+    			break;
+    			
+    		case 6:
     			saveQueueToFile(movieQueue, filename);
     			cout << "Saving to File, Goodbye!";
     			

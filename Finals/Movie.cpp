@@ -86,3 +86,36 @@ void displayMenu(){
 	cout << "5. Exit" << endl;
 	cout << "Enter your choice: ";
 }
+
+
+void searchInFile(const queue<string>& movieQueue, string SearchTerm) {
+    // Open the text file for reading
+    ifstream file(movieQueue);
+
+    // Verify if the file opened successfully
+    if (!file.is_open()) {
+        cout << "Error: Could not open the file " << movieQueue << endl;
+        return;
+    }
+
+    string line;
+    int lineNumber = 1;
+    bool found = false;
+
+    // Read the file line-by-line
+    while (getline(file, line)) {
+        // Search for the term within the current line
+        if (line.find(searchTerm) != string::npos) {
+            cout << "Found \"" << searchTerm << "\" on Line " << lineNumber << ": " << line << endl;
+            found = true;
+        }
+        lineNumber++; // Move to the next line number
+    }
+
+    if (!found) {
+        cout << "\"" << searchTerm << "\" was not found in the file." << endl;
+    }
+
+    // Close the file stream
+    file.close();
+}
