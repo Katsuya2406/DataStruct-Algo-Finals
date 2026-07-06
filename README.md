@@ -3,16 +3,17 @@ This project is for the finals of my Data Structure and Algorithms class.
 
 List of Contributors:
 1. Reige Payad
+2. Jenssell Simon
 
 Functions:
-1. addMovie
-2. playMovie
-3. viewNextMovie
-4. checkIfEmpty
-5. Exit
+- [ ] addMovie
+- [ ] playMovie
+- [ ] viewNextMovie
+- [ ] checkIfEmpty
+- [ ] Exit
 
 To add:
-1. searchMovie
-2. watcherMovie
-3. paymentMovie
-4. Error Detector
+- [ ] searchMovie
+- [ ] watcherMovie
+- [ ] paymentMovie
+- [ ] Error Detector
