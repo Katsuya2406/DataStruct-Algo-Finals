@@ -24,6 +24,28 @@ int main() {
     		case 1:
     			addMovie(movieQueue);
     			break;
+    			
+    		case 2:
+    			playMovie(movieQueue);
+    			break;
+    			
+    		case 3:
+    			viewNextMovie(movieQueue);
+    			break;
+    			
+    		case 4:
+    			checkIfEmpty(movieQueue);
+    			break;
+    			
+    		case 5:
+    			saveQueueToFile(movieQueue, filename);
+    			cout << "Saving to File, Goodbye!";
+    			
+    			return 0;
+    			
+    		default: 
+    			cout << "Invalid choice! Please try again." << endl;
+    			break;
 		}
 	}
     return 0;
