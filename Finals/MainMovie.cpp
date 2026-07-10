@@ -26,7 +26,7 @@ int main() {
     			break;
     			
     		case 2:
-    			playMovie(movieQueue);
+    			rentMovie(movieQueue);
     			break;
     			
     		case 3:
