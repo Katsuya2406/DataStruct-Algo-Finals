@@ -33,25 +33,50 @@ outfile.close();
 
 
 void addMovie(queue<string>& movieQueue){
-	string movie;
-	
-	cout << "Add the title pf your movie: ";
-	getline(cin, movie);
-	
-	movieQueue.push(movie); 
-	cout << "Your movie titled " << movie << " has beed added!" << endl;
+	 string movie;
+
+    cout << "Add the title of your movie: ";
+    getline(cin, movie);
+
+    movieQueue.push(movie);
+
+    saveQueueToFile(movieQueue, "movieQueue.txt");
+
+    cout << "Your movie titled \"" << movie << "\" has been added!" << endl;
 	
 }
 
-void playMovie(queue<string>& movieQueue){
-	if (!movieQueue.empty()){
-		cout<<"Playing movie: " << movieQueue.front() << endl;
-		movieQueue.pop();	
-	}
-	else 
-	{
-		cout << "The list of Movies is empty." << endl;
-	}
+void rentMovie(queue<string>& movieQueue)
+{
+    string movieName;
+    cout << "Enter the movie to rent: ";
+    getline(cin, movieName);
+
+    queue<string> tempQueue;
+    bool found = false;
+
+    while (!movieQueue.empty())
+    {
+        if (movieQueue.front() == movieName && !found)
+        {
+            cout << "Playing movie: " << movieQueue.front() << endl;
+            movieQueue.pop();
+            found = true;
+        }
+        else
+        {
+            tempQueue.push(movieQueue.front());
+            movieQueue.pop();
+        }
+    }
+
+    movieQueue = tempQueue;
+    saveQueueToFile(movieQueue, "movieQueue.txt");
+
+    if (!found)
+    {
+        cout << "Movie not found." << endl;
+    }
 }
 
 void viewNextMovie(const queue<string>& movieQueue){
@@ -80,7 +105,7 @@ void displayMenu(){
 	cout << endl;
 	cout << "--Movie Rental System--" << endl;
 	cout << "1. Add a movie" << endl;
-	cout << "2. Play a movie" << endl;
+	cout << "2. Rent a movie" << endl;
 	cout << "3. View the next movie" << endl;
 	cout << "4. Search for a movie" << endl;
 	cout << "5. Check if the list is empty" << endl;
