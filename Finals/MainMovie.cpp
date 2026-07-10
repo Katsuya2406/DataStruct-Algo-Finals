@@ -34,11 +34,11 @@ int main() {
     			break;
     			
     		case 4:
-    			checkIfEmpty(movieQueue);
+    			searchMovie();
     			break;
     			
     		case 5:
-    			searchInFile(movieQueue);
+    			checkIfEmpty(movieQueue);
     			break;
     			
     		case 6:
