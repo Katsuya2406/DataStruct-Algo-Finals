@@ -16,9 +16,8 @@ void viewNextMovie(const queue<string>& movieQueue);
 void checkIfEmpty(const queue<string>& movieQueue);
 
 //added functions
-void searchMovie(const queue<string>& movieQueue);
-void watcherMovie(const queue<string>& movieQueue);
-void paymentMovie(const queue<string>& movieQueue);
+void searchMovie();
+
 
 void displayMenu();
 

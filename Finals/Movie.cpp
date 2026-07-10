@@ -82,40 +82,43 @@ void displayMenu(){
 	cout << "1. Add a movie" << endl;
 	cout << "2. Play a movie" << endl;
 	cout << "3. View the next movie" << endl;
-	cout << "4. Check if the list is empty" << endl;
-	cout << "5. Exit" << endl;
+	cout << "4. Search for a movie" << endl;
+	cout << "5. Check if the list is empty" << endl;
+	cout << "6. Exit" << endl;
 	cout << "Enter your choice: ";
 }
 
 
-void searchInFile(const queue<string>& movieQueue, string SearchTerm) {
-    // Open the text file for reading
-    ifstream file(movieQueue);
+void searchMovie()
+{
+    ifstream infile("movieQueue.txt");
 
-    // Verify if the file opened successfully
-    if (!file.is_open()) {
-        cout << "Error: Could not open the file " << movieQueue << endl;
+    if (!infile)
+    {
+        cout << "Error: Could not open movieQueue.txt." << endl;
         return;
     }
 
-    string line;
-    int lineNumber = 1;
+    string searchText;
+    string movie;
     bool found = false;
 
-    // Read the file line-by-line
-    while (getline(file, line)) {
-        // Search for the term within the current line
-        if (line.find(searchTerm) != string::npos) {
-            cout << "Found \"" << searchTerm << "\" on Line " << lineNumber << ": " << line << endl;
+    cout << "Enter the movie title to search: ";
+    getline(cin, searchText);
+
+    while (getline(infile, movie))
+    {
+        if (movie == searchText)
+        {
             found = true;
+            break;
         }
-        lineNumber++; // Move to the next line number
     }
 
-    if (!found) {
-        cout << "\"" << searchTerm << "\" was not found in the file." << endl;
-    }
+    infile.close();
 
-    // Close the file stream
-    file.close();
+    if (found)
+        cout << "Movie found!" << endl;
+    else
+        cout << "Movie not found." << endl;
 }
