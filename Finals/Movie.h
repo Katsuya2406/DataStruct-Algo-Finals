@@ -17,6 +17,7 @@ void checkIfEmpty(const queue<string>& movieQueue);
 
 //added functions
 void searchMovie();
+void displayMovie();
 
 
 void displayMenu();

@@ -21,7 +21,7 @@ void saveQueueToFile(const queue<string>& movieQueue, const string& filename){
 ofstream outfile(filename.c_str());
 if (outfile.is_open()) {
 queue<string> tempQueue = movieQueue; 
-// Create a temporary vcopy to iterate
+
 while (!tempQueue.empty()) {
 outfile << tempQueue.front() << endl;
 tempQueue.pop();
@@ -108,8 +108,9 @@ void displayMenu(){
 	cout << "2. Rent a movie" << endl;
 	cout << "3. View the next movie" << endl;
 	cout << "4. Search for a movie" << endl;
-	cout << "5. Check if the list is empty" << endl;
-	cout << "6. Exit" << endl;
+	cout << "5. Display all movies" << endl;
+	cout << "6. Check if the list is empty" << endl;
+	cout << "7. Exit" << endl;
 	cout << "Enter your choice: ";
 }
 
@@ -146,4 +147,22 @@ void searchMovie()
         cout << "Movie found!" << endl;
     else
         cout << "Movie not found." << endl;
+}
+
+void displayMovie() {
+    ifstream infile("movieQueue.txt");
+    string movie;
+
+    if (!infile.is_open()) {
+        cout << "Error: Could not open movieQueue.txt" << endl;
+        return;
+    }
+
+    cout << "\n===== Movie Queue =====" << endl;
+
+    while (getline(infile, movie)) {
+        cout << movie << endl;
+    }
+
+    infile.close();
 }

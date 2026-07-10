@@ -38,10 +38,14 @@ int main() {
     			break;
     			
     		case 5:
-    			checkIfEmpty(movieQueue);
+    			displayMovie();
     			break;
     			
     		case 6:
+    			checkIfEmpty(movieQueue);
+    			break;
+    			
+    		case 7:
     			saveQueueToFile(movieQueue, filename);
     			cout << "Saving to File, Goodbye!";
     			
