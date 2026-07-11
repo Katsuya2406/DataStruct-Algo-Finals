@@ -13,7 +13,5 @@ Functions:
 - [x] Exit
 
 To add:
-- [ ] searchMovie
-- [ ] watcherMovie
-- [ ] paymentMovie
-- [ ] Error Detector
+- [x] searchMovie
+- [x] displayMovie
