@@ -6,20 +6,23 @@
 
 using namespace std;
 
-void loadQueueFromFile(queue<string>& movieQueue, const string& filename);
-void saveQueueToFile(const queue<string>& movieQueue, const string& filename);
 
+//Queue Functions:
+void loadQueueFromFile(queue<string>& q, const string& filename);
+void saveQueueToFile(const queue<string>& q, const string& filename);
 
+//Main Functions:
 void addMovie(queue<string>& movieQueue);
-void rentMovie(queue<string>& movieQueue);
+void rentMovie(queue<string>& movieQueue, queue<string>& customerQueue);
 void viewNextMovie(const queue<string>& movieQueue);
 void checkIfEmpty(const queue<string>& movieQueue);
 
-//added functions
+//Extra Functions
 void searchMovie();
 void displayMovie();
+void displayCustomerQueue(const queue<string>& customerQueue);
 
-
+//Menu
 void displayMenu();
 
 #endif
