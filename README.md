@@ -17,5 +17,5 @@ Functions:
 To add:
 - [x] searchMovie
 - [x] displayMovie
-- [x]displaycustomerQueue
+- [x] displaycustomerQueue
 - [ ] returnMovie
