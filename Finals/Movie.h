@@ -21,6 +21,7 @@ void checkIfEmpty(const queue<string>& movieQueue);
 void searchMovie();
 void displayMovie();
 void displayCustomerQueue(const queue<string>& customerQueue);
+void returnMovie(queue<string>& movieQueue, queue<string>& customerQueue);
 
 //Menu
 void displayMenu();
