@@ -6,8 +6,10 @@ List of Contributors:
 2. Jenssell Simon
 
 Functions:
+- [x] loadQueueFromFile
+- [x] saveQueueFromFile
 - [x] addMovie
-- [x] playMovie
+- [x] rentMovie
 - [x] viewNextMovie
 - [x] checkIfEmpty
 - [x] Exit
@@ -15,3 +17,5 @@ Functions:
 To add:
 - [x] searchMovie
 - [x] displayMovie
+- [x]displaycustomerQueue
+- [ ] returnMovie
