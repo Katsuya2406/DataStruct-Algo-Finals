@@ -32,28 +32,32 @@ int main() {
             case 2:
                 rentMovie(movieQueue, customerQueue);
                 break;
-
+                
             case 3:
-                viewNextMovie(movieQueue);
+            	returnMovie(movieQueue, customerQueue);
                 break;
 
             case 4:
-                searchMovie();
+                viewNextMovie(movieQueue);
                 break;
 
             case 5:
-                displayCustomerQueue(customerQueue);
+                searchMovie();
                 break;
 
             case 6:
-                displayMovie();
+                displayCustomerQueue(customerQueue);
                 break;
 
             case 7:
-                checkIfEmpty(movieQueue);
+                displayMovie();
                 break;
 
             case 8:
+                checkIfEmpty(movieQueue);
+                break;
+
+            case 9:
                 saveQueueToFile(movieQueue, movieFile);
                 saveQueueToFile(customerQueue, customerFile);
                 cout << "Saving to File, Goodbye!" << endl;

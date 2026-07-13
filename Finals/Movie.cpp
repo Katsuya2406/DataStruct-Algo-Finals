@@ -122,12 +122,13 @@ void displayMenu() {
     cout << "--Movie Rental System--" << endl;
     cout << "1. Add a movie" << endl;
     cout << "2. Rent a movie" << endl;
-    cout << "3. View the next movie" << endl;
-    cout << "4. Search for a movie" << endl;
-    cout << "5. Display rented customers" << endl;
-    cout << "6. Display all movies" << endl;
-    cout << "7. Check if the list is empty" << endl;
-    cout << "8. Exit" << endl;
+	cout << "3. Return a movie" << endl;
+    cout << "4. View the next movie" << endl;
+    cout << "5. Search for a movie" << endl;
+    cout << "6. Display rented customers" << endl;
+    cout << "7. Display all movies" << endl;
+    cout << "8. Check if the list is empty" << endl;
+    cout << "9. Exit" << endl;
     cout << "Enter your choice: ";
 }
 
@@ -195,4 +196,39 @@ void displayCustomerQueue(const queue<string>& customerQueue) {
         cout << tempQueue.front() << endl;
         tempQueue.pop();
     }
+}
+
+
+void returnMovie(queue<string>& movieQueue, queue<string>& customerQueue) {
+    string customerName;
+    string movieName;
+
+    // Fixed the prompt text to match "returning" instead of "renting"
+    cout << "Enter customer name: ";
+    getline(cin, customerName);
+
+    cout << "Enter the movie you are returning: ";
+    getline(cin, movieName);
+
+    // Validation check
+    if (customerName.empty() || movieName.empty()) {
+        cout << "Customer name and movie title cannot be empty." << endl;
+        return;
+    }
+
+    // 1. Add the movie back to the available movie queue
+    movieQueue.push(movieName);
+
+    // 2. Update the customer queue with the return record
+    string record = customerName + " returned " + movieName;
+    customerQueue.push(record);
+
+    // 3. Save the updated queues back to their respective files
+    saveQueueToFile(movieQueue, "movieQueue.txt");
+    saveQueueToFile(customerQueue, "customerQueue.txt");
+
+    // Success message
+    cout << "\nMovie returned successfully!" << endl;
+    cout << "Customer: " << customerName << endl;
+    cout << "Movie: " << movieName << endl;
 }
