@@ -22,6 +22,7 @@ void searchMovie();
 void displayMovie();
 void displayCustomerQueue(const queue<string>& customerQueue);
 void returnMovie(queue<string>& movieQueue, queue<string>& customerQueue);
+void deleteMovie(queue<string>& movieQueue);
 
 //Menu
 void displayMenu();
