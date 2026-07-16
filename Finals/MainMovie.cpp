@@ -7,13 +7,15 @@
 using namespace std;
 
 int main() {
-    queue<string> movieQueue;
+    
+    //initializes the core data structures movie linked list and customer queue with their .txt file path.
+    Movie* movieHead = nullptr; 
     queue<string> customerQueue;
-
-    const string movieFile = "movieQueue.txt";
+    const string movieFile = "movieList.txt";
     const string customerFile = "customerQueue.txt";
-
-    loadQueueFromFile(movieQueue, movieFile);
+	
+	//load previously saved movie records into the linked list and customer data into the queue.
+    loadMoviesFromFile(movieHead, movieFile);
     loadQueueFromFile(customerQueue, customerFile);
 
     int choice;
@@ -21,32 +23,39 @@ int main() {
     while (true) {
         displayMenu();
 
-        cin >> choice;
+        //input validation to prevent infinite loops if a user types a letter.
+        if (!(cin >> choice)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input! Please enter a number." << endl;
+            continue;
+        }
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
+		
+		//the options from the previously made functions.
         switch (choice) {
             case 1:
-                addMovie(movieQueue);
+                addMovie(movieHead); 
                 break;
                 
             case 2:
-                deleteMovie(movieQueue);
+                deleteMovie(movieHead); 
                 break;
 
             case 3:
-                rentMovie(movieQueue, customerQueue);
+                rentMovie(movieHead, customerQueue); 
                 break;
                 
             case 4:
-            	returnMovie(movieQueue, customerQueue);
+                returnMovie(movieHead, customerQueue); 
                 break;
 
             case 5:
-                viewNextMovie(movieQueue);
+                viewNextMovie(movieHead);
                 break;
 
             case 6:
-                searchMovie();
+                searchMovie(movieHead); 
                 break;
 
             case 7:
@@ -54,15 +63,16 @@ int main() {
                 break;
 
             case 8:
-                displayMovie();
+                displayMovies(movieHead);
                 break;
 
             case 9:
-                checkIfEmpty(movieQueue);
+                checkIfEmpty(movieHead); 
                 break;
-
-            case 10:
-                saveQueueToFile(movieQueue, movieFile);
+                
+			case 10:
+                //save the states to their text files upon exit.
+                saveMoviesToFile(movieHead, movieFile);
                 saveQueueToFile(customerQueue, customerFile);
                 cout << "Saving to File, Goodbye!" << endl;
                 return 0;
