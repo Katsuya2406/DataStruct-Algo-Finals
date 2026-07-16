@@ -39,6 +39,13 @@ void saveQueueToFile(const queue<string>& q, const string& filename) {
 //Main Functions
 void addMovie(queue<string>& movieQueue) {
     string movie;
+    string code;
+    
+    cout << "Enter Authorization Code: ";
+    getline(cin, code); 
+    
+    if (code == "RX93V"){
+	
 
     cout << "Add the title of your movie: ";
     getline(cin, movie);
@@ -52,6 +59,56 @@ void addMovie(queue<string>& movieQueue) {
     saveQueueToFile(movieQueue, "movieQueue.txt");
 
     cout << "Your movie titled \"" << movie << "\" has been added!" << endl;
+}
+
+	else {
+		cout << "Wrong Code" << endl;
+	}
+}
+
+
+void deleteMovie(queue<string>& movieQueue)
+{
+    string movieName;
+    string code;
+    
+    cout << "Enter Authorization Code: ";
+     getline(cin, code); 
+    if (code == "RX93V"){
+	
+    cout << "Enter the movie to delete: ";
+    getline(cin, movieName);
+
+    queue<string> tempQueue;
+    bool found = false;
+
+    while (!movieQueue.empty())
+    {
+        if (movieQueue.front() == movieName && !found)
+        {
+            cout << "Playing movie: " << movieQueue.front() << endl;
+            movieQueue.pop();
+            found = true;
+        }
+        else
+        {
+            tempQueue.push(movieQueue.front());
+            movieQueue.pop();
+        }
+    }
+
+    movieQueue = tempQueue;
+    saveQueueToFile(movieQueue, "movieQueue.txt");
+
+    if (!found)
+    {
+        cout << "Movie not found." << endl;
+    }
+}
+
+else {
+	cout << "Wrong Code"<< endl;
+}
 }
 
 void rentMovie(queue<string>& movieQueue, queue<string>& customerQueue) {
@@ -121,14 +178,15 @@ void displayMenu() {
     cout << endl;
     cout << "--Movie Rental System--" << endl;
     cout << "1. Add a movie" << endl;
-    cout << "2. Rent a movie" << endl;
-	cout << "3. Return a movie" << endl;
-    cout << "4. View the next movie" << endl;
-    cout << "5. Search for a movie" << endl;
-    cout << "6. Display rented customers" << endl;
-    cout << "7. Display all movies" << endl;
-    cout << "8. Check if the list is empty" << endl;
-    cout << "9. Exit" << endl;
+    cout << "2. Delete a movie" << endl;
+    cout << "3. Rent a movie" << endl;
+	cout << "4. Return a movie" << endl;
+    cout << "5. View the next movie" << endl;
+    cout << "6. Search for a movie" << endl;
+    cout << "7. Display rented customers" << endl;
+    cout << "8. Display all movies" << endl;
+    cout << "9. Check if the list is empty" << endl;
+    cout << "10. Exit" << endl;
     cout << "Enter your choice: ";
 }
 
